@@ -1,7 +1,7 @@
 {
   "name": "dir-to-json",
   "version": "0.0.1",
-  "description": "Convert directory structure into a json object.",
+  "description": "Convert directory tree structure into a json object.",
   "private": true,
   "keywords": [
     "directory",

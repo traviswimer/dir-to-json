@@ -1,4 +1,4 @@
 #dir-to-json
 
-> Convert directory structure into a json object.
+> Convert directory tree structure into a json object.
 
