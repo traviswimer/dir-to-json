@@ -65,10 +65,59 @@ describe("createDirectoryObject", function(){
 			createDirectoryObject.__set__( 'readdir', readdirStub );
 
 			createDirectoryObject( path, "" ).then( function( data ){
-				expect( data.children ).to.be.defined;
+				expect( data.children ).not.to.be.undefined;
 				done();
 			});
 		});
 
 	});
+
+
+	describe("fs errors", function(){
+
+		it("should still resolve when stat error", function( done ){
+
+			var path = "./fakeDir";
+			var files = [
+				"fakeFile1",
+				"fakeFile2",
+				"fakeFile3"
+			];
+
+			var statStub = sinon.stub();
+			statStub.returns( Q.reject( new Error() ));
+
+			createDirectoryObject.__set__( 'stat', statStub );
+
+			createDirectoryObject( path, "" ).then( function( data ){
+				done();
+			});
+		});
+
+
+		it("should still resolve when readdir error", function( done ){
+
+			var path = "./fakeDir";
+
+			var statStub = sinon.stub();
+			statStub.onCall(0).returns( Q.resolve({
+				isFile: function(){
+					return false;
+				}
+			}));
+
+			var readdirStub = sinon.stub()
+			readdirStub.returns( Q.reject( new Error() ) );
+
+			createDirectoryObject.__set__( 'stat', statStub );
+			createDirectoryObject.__set__( 'readdir', readdirStub );
+
+			createDirectoryObject( path, "" ).then( function( data ){
+				done();
+			});
+		});
+
+	});
+
+
 });
