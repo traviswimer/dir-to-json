@@ -1,6 +1,8 @@
 var fs = require("fs");
 var path = require('path');
 var Q = require('q');
+var stat = Q.denodeify( fs.stat.bind(fs) );
+var readdir = Q.denodeify( fs.readdir.bind(fs) );
 
 var createDirectoryObject = function( rootDir, fileName, options ){
 	var deferred = Q.defer();
@@ -13,41 +15,34 @@ var createDirectoryObject = function( rootDir, fileName, options ){
 		name: path.basename( currentDir )
 	};
 
-	fs.stat( currentDir, function( err, stats ){
-		
-			console.log("++++++++++++++++++");
-			console.log(currentDir);
-		if( err ){
-			console.log(err);
-			deferred.resolve( fileInfo );
-			return;
-		}
+	stat( currentDir )
+	.then(function( stats ){
 
 		fileInfo.type = stats.isFile() ? "file" : "directory";
 
 		if( fileInfo.type === "file" ){
 			deferred.resolve( fileInfo );
-			return;
+			throw new Error("Not a directory");
 		}
 
-		fs.readdir( currentDir, function( err, files ){
-		
-			if( err ){
-				deferred.resolve( fileInfo );
-				return;
-			}
-			var promises = [];
-			files.forEach(function( fileName ){
-				promises.push( createDirectoryObject( rootDir, fileName, options ) );
-			});
+		return currentDir;
 
+	}).then( readdir )
+	.then(function( files ){
 
-			Q.all( promises ).then(function(data){
-				fileInfo.children = data;
-				deferred.resolve( fileInfo );
-			});
-
+		var promises = [];
+		files.forEach(function( fileName ){
+			promises.push( createDirectoryObject( rootDir, fileName, options ) );
 		});
+
+
+		Q.all( promises ).then(function(data){
+			fileInfo.children = data;
+			deferred.resolve( fileInfo );
+		});
+
+	}).catch(function( err ){
+		deferred.resolve( fileInfo );
 	});
 
 	return deferred.promise;
