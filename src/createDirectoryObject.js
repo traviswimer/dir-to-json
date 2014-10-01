@@ -15,7 +15,8 @@ var createDirectoryObject = function( rootDir, fileName, options ){
 		name: path.basename( currentDir )
 	};
 
-	stat( currentDir, function( stats ){
+	stat( currentDir )
+	.then( function( stats ){
 
 		// Check if file or directory
 		fileInfo.type = stats.isFile() ? "file" : "directory";
