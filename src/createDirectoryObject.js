@@ -7,11 +7,11 @@ var readdir = Q.denodeify( fs.readdir.bind(fs) );
 var createDirectoryObject = function( rootDir, fileName, options ){
 	var deferred = Q.defer();
 
-	var currentDir = rootDir + fileName;
+	var currentDir = path.normalize( rootDir + '/' + fileName );
 
 	var fileInfo = {
 		parent: path.relative( rootDir, path.dirname( currentDir ) ),
-		path: "./" + path.relative( rootDir, currentDir ),
+		path: path.relative( "./" + rootDir, currentDir ),
 		name: path.basename( currentDir )
 	};
 
