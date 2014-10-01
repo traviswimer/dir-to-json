@@ -27,7 +27,8 @@ var createDirectoryObject = function( rootDir, fileName, options ){
 
 		return currentDir;
 
-	}).then( readdir )
+	})
+	.then( readdir )
 	.then(function( files ){
 
 		var promises = [];
@@ -41,7 +42,8 @@ var createDirectoryObject = function( rootDir, fileName, options ){
 			deferred.resolve( fileInfo );
 		});
 
-	}).catch(function( err ){
+	})
+	.catch(function( err ){
 		deferred.resolve( fileInfo );
 	});
 
