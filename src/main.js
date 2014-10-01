@@ -1,24 +1,40 @@
 var fs = require("fs");
+var Q = require('q');
+
 var createDirectoryObject = require("./createDirectoryObject");
 
-module.exports = function( path, options, callback ){
+module.exports = function( path, options, callbackParam ){
+	var deferred = Q.defer();
+	callbackParam = callbackParam || function(){};
+
+	if( typeof options === "function" ){
+		callbackParam = options;
+	}
+
+	// Make promises and callbacks both available
+	var callback = function( err, data ){
+		if( err ){
+			deferred.reject( err );
+		}else{
+			deferred.resolve( data );
+		}
+
+		callbackParam( err, data );
+	};
 
 	if( typeof path !== "string" ){
 		callback( new Error("Path parameter must be a string") );
-		return;
+		return deferred.promise;
 	}
 
-	if( typeof options === "function" ){
-		callback = options;
-	}
 
-	if( typeof callback !== "function" ){
-		callback( new Error("A callback function must be provided") );
-		return;
-	}
-
-	createDirectoryObject( path, path, options, function( err, obj ){
-		callback( err, obj, JSON.stringify(obj) );
+	createDirectoryObject( path, "", options )
+	.then(function( obj ){
+		callback( null, obj );
+	})
+	.catch(function( err ){
+		callback( err );
 	});
 
+	return deferred.promise;
 };
