@@ -15,9 +15,9 @@ var createDirectoryObject = function( rootDir, fileName, options ){
 		name: path.basename( currentDir )
 	};
 
-	stat( currentDir )
-	.then(function( stats ){
+	stat( currentDir, function( stats ){
 
+		// Check if file or directory
 		fileInfo.type = stats.isFile() ? "file" : "directory";
 
 		if( fileInfo.type === "file" ){
@@ -31,12 +31,13 @@ var createDirectoryObject = function( rootDir, fileName, options ){
 	.then( readdir )
 	.then(function( files ){
 
+		// Recursively examine directory's children
 		var promises = [];
 		files.forEach(function( fileName ){
 			promises.push( createDirectoryObject( rootDir, fileName, options ) );
 		});
 
-
+		// Wait for all children to complete before resolving main promise
 		Q.all( promises ).then(function(data){
 			fileInfo.children = data;
 			deferred.resolve( fileInfo );
@@ -44,6 +45,7 @@ var createDirectoryObject = function( rootDir, fileName, options ){
 
 	})
 	.catch(function( err ){
+		// Main promise should always resolve
 		deferred.resolve( fileInfo );
 	});
 
