@@ -17,7 +17,7 @@ module.exports = function( path, options, callback ){
 		return;
 	}
 
-	createDirectoryObject( path, options, function( err, obj ){
+	createDirectoryObject( path, path, options, function( err, obj ){
 		callback( err, obj, JSON.stringify(obj) );
 	});
 

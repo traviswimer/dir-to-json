@@ -10,7 +10,9 @@
     "path",
     "stat"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "q": "^1.0.1"
+  },
   "devDependencies": {
     "mocha": "^1.21.4",
     "chai": "^1.9.1",
