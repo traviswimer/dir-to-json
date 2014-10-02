@@ -4,7 +4,6 @@ var config = require('../config');
 var istanbul = require('gulp-istanbul');
 var istanbulEnforcer = require('gulp-istanbul-enforcer');
 var mocha = require('gulp-mocha');
-var debug = require('gulp-debug');
 
 gulp.task('test', function(callback) {
 
@@ -33,8 +32,6 @@ gulp.task('test', function(callback) {
 	};
 
 	gulp.src( [config.src + '/*.js', config.src + '/**/*.js'] )
-		.pipe( debug() )
-
 		// Instrument source code
 		.pipe(
 			istanbul()
@@ -42,7 +39,6 @@ gulp.task('test', function(callback) {
 		.on('finish', function (){
 			// Load tests into mocha
 			gulp.src( [config.tests + '/*_test.js', config.tests + '/**/*_test.js'] )
-				.pipe( debug() )
 				.pipe(
 					mocha({
 						reporter: 'spec'
