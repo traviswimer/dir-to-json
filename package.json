@@ -1,14 +1,13 @@
 {
   "name": "dir-to-json",
   "version": "0.0.1",
-  "description": "Convert directory tree structure into a json object.",
-  "private": true,
+  "description": "Asynchronously convert directory tree structure into a javascript object.",
   "keywords": [
     "directory",
     "tree",
     "json",
     "path",
-    "stat"
+    "asynchronous"
   ],
   "dependencies": {
     "q": "^1.0.1"
@@ -26,6 +25,9 @@
     "sinon": "^1.10.3"
   },
   "main": "./src/main.js",
+  "scripts": {
+    "test": "gulp test"
+  },
   "contributors": [
     {
       "name": "Travis Wimer",
