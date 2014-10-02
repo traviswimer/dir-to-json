@@ -11,7 +11,7 @@ var createDirectoryObject = function( rootDir, fileName, options ){
 
 	var fileInfo = {
 		parent: path.relative( rootDir, path.dirname( currentDir ) ),
-		path: path.relative( "./" + rootDir, currentDir ),
+		path: path.relative( "./" + rootDir, "./" + currentDir ),
 		name: path.basename( currentDir )
 	};
 
@@ -24,6 +24,8 @@ var createDirectoryObject = function( rootDir, fileName, options ){
 		if( fileInfo.type === "file" ){
 			deferred.resolve( fileInfo );
 			throw new Error("Not a directory");
+		}else{
+			fileInfo.children = [];
 		}
 
 		return currentDir;
@@ -34,8 +36,8 @@ var createDirectoryObject = function( rootDir, fileName, options ){
 
 		// Recursively examine directory's children
 		var promises = [];
-		files.forEach(function( fileName ){
-			promises.push( createDirectoryObject( rootDir, fileName, options ) );
+		files.forEach(function( newFileName ){
+			promises.push( createDirectoryObject( rootDir, fileName+'/'+newFileName, options ) );
 		});
 
 		// Wait for all children to complete before resolving main promise
