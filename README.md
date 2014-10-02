@@ -33,3 +33,4 @@ dirToJson( "./path/to/my/dir" )
 		throw err;
 	};
 ```
+
