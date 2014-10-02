@@ -29,8 +29,125 @@ dirToJson( "./path/to/my/dir" )
 	.then( function( dirTree ){
 		console.log( dirTree );
 	})
-	.catch( err ){
+	.catch( function( err ){
 		throw err;
-	};
+	});
 ```
 
+## API
+
+`dirToJson( path [, options ] [, callback ] )`
+
+### path
+* type: string
+* description: Path to the directory you would like to obtain a tree object from.
+
+### options *(optional)*
+* type: object
+* description: This currently serves no purpose, but will be used if more funtionality is added.
+
+### callback( err, directoryTree ) *(optional)*
+* type: function
+* description: Callback function
+	* err - Error object on fail. `null` on success.
+	* directoryTree - Object containing heirarchical directory data.
+
+## Structure of output
+
+```javascript
+{
+	"parent": "..",
+	"path": "",
+	"name": "coverage",
+	"type": "directory",
+	"children": [{
+		"parent": "",
+		"path": "coverage-final.json",
+		"name": "coverage-final.json",
+		"type": "file"
+	}, {
+		"parent": "",
+		"path": "index.html",
+		"name": "index.html",
+		"type": "file"
+	}, {
+		"parent": "",
+		"path": "lcov-report",
+		"name": "lcov-report",
+		"type": "directory",
+		"children": [{
+			"parent": "lcov-report",
+			"path": "lcov-report/index.html",
+			"name": "index.html",
+			"type": "file"
+		}, {
+			"parent": "lcov-report",
+			"path": "lcov-report/prettify.css",
+			"name": "prettify.css",
+			"type": "file"
+		}, {
+			"parent": "lcov-report",
+			"path": "lcov-report/prettify.js",
+			"name": "prettify.js",
+			"type": "file"
+		}, {
+			"parent": "lcov-report",
+			"path": "lcov-report/src",
+			"name": "src",
+			"type": "directory",
+			"children": [{
+				"parent": "lcov-report/src",
+				"path": "lcov-report/src/createDirectoryObject.js.html",
+				"name": "createDirectoryObject.js.html",
+				"type": "file"
+			}, {
+				"parent": "lcov-report/src",
+				"path": "lcov-report/src/index.html",
+				"name": "index.html",
+				"type": "file"
+			}, {
+				"parent": "lcov-report/src",
+				"path": "lcov-report/src/main.js.html",
+				"name": "main.js.html",
+				"type": "file"
+			}]
+		}]
+	}, {
+		"parent": "",
+		"path": "lcov.info",
+		"name": "lcov.info",
+		"type": "file"
+	}, {
+		"parent": "",
+		"path": "prettify.css",
+		"name": "prettify.css",
+		"type": "file"
+	}, {
+		"parent": "",
+		"path": "prettify.js",
+		"name": "prettify.js",
+		"type": "file"
+	}, {
+		"parent": "",
+		"path": "src",
+		"name": "src",
+		"type": "directory",
+		"children": [{
+			"parent": "src",
+			"path": "src/createDirectoryObject.js.html",
+			"name": "createDirectoryObject.js.html",
+			"type": "file"
+		}, {
+			"parent": "src",
+			"path": "src/index.html",
+			"name": "index.html",
+			"type": "file"
+		}, {
+			"parent": "src",
+			"path": "src/main.js.html",
+			"name": "main.js.html",
+			"type": "file"
+		}]
+	}]
+}
+```
