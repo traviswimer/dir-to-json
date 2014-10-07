@@ -7,6 +7,10 @@ var readdir = Q.denodeify( fs.readdir.bind(fs) );
 var createDirectoryObject = function( rootDir, fileName, options ){
 	var deferred = Q.defer();
 
+	// Set option defaults
+	options = typeof options === "object" ? options : {};
+	options.sortType = typeof options.sortType !== "undefined" ? options.sortType : true;
+
 	var currentDir = path.normalize( rootDir + '/' + fileName );
 
 	var fileInfo = {
