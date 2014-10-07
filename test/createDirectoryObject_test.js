@@ -187,7 +187,7 @@ describe("createDirectoryObject", function(){
 				}
 			}));
 
-			var readdirStub = sinon.stub()
+			var readdirStub = sinon.stub();
 			readdirStub.returns( Q.reject( new Error() ) );
 
 			createDirectoryObject.__set__( 'stat', statStub );
