@@ -4,6 +4,8 @@ var Q = require('q');
 var stat = Q.denodeify( fs.stat.bind(fs) );
 var readdir = Q.denodeify( fs.readdir.bind(fs) );
 
+var sortType = require('./options/sortType');
+
 var createDirectoryObject = function( rootDir, fileName, options ){
 	var deferred = Q.defer();
 
@@ -46,6 +48,11 @@ var createDirectoryObject = function( rootDir, fileName, options ){
 
 		// Wait for all children to complete before resolving main promise
 		Q.all( promises ).then(function(data){
+
+			if( options.sortType ){
+				data = sortType( data );
+			}
+
 			fileInfo.children = data;
 			deferred.resolve( fileInfo );
 		});
