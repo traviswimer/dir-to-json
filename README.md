@@ -44,7 +44,9 @@ dirToJson( "./path/to/my/dir" )
 
 ### options *(optional)*
 * type: object
-* description: This currently serves no purpose, but will be used if more funtionality is added.
+* description: Allows output to be customized.
+* Accepted properties:
+	* **sortType** *boolean* (Default: `true`) - If `true`, directories will be listed before files in all `children` arrays. If `false`, array contents will be listed in the order which they are returned from `fs.readdir()`.
 
 ### callback( err, directoryTree ) *(optional)*
 * type: function
