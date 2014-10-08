@@ -201,4 +201,91 @@ describe("createDirectoryObject", function(){
 	});
 
 
+	describe("options", function(){
+
+		var path = "./fakeDir";
+		var files = [
+			"fakeFile",
+			"fakeDir",
+			"fakeFile",
+			"fakeDir"
+		];
+		var options;
+		var statStub;
+		var readdirStub;
+
+		beforeEach(function(){
+			statStub = sinon.stub();
+			statStub
+				.onCall(0)
+				.returns( Q.resolve({
+					isFile: function(){
+						return false;
+					}
+				}))
+				.onCall(2)
+				.returns( Q.resolve({
+					isFile: function(){
+						return false;
+					}
+				}))
+				.onCall(4)
+				.returns( Q.resolve({
+					isFile: function(){
+						return false;
+					}
+				}));
+
+			statStub.returns( Q.resolve({
+				isFile: function(){
+					return true;
+				}
+			}));
+
+			readdirStub = sinon.stub();
+			readdirStub.returns( Q.resolve( files ) );
+
+			createDirectoryObject.__set__( 'stat', statStub );
+			createDirectoryObject.__set__( 'readdir', readdirStub );
+		});
+
+		it("should sort by type if sortType is true", function( done ){
+
+			options = {
+				sortType: true
+			};
+
+			createDirectoryObject( path, "", options ).then( function( data ){
+				data.children.forEach( function( item, index ){
+					if( index < 2 ){
+						expect( item.type ).to.equal("directory");
+					}else{
+						expect( item.type ).to.equal("file");
+					}
+				});
+				done();
+			});
+		});
+
+		it("should not sort by type if sortType is false", function( done ){
+
+			options = {
+				sortType: false
+			};
+
+			createDirectoryObject( path, "", options ).then( function( data ){
+				data.children.forEach( function( item, index ){
+					if( index === 1 || index === 3 ){
+						expect( item.type ).to.equal("directory");
+					}else{
+						expect( item.type ).to.equal("file");
+					}
+				});
+				done();
+			});
+		});
+
+	});
+
+
 });
