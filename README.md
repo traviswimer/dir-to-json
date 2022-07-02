@@ -1,16 +1,24 @@
-# dir-to-json [![Build Status](https://travis-ci.org/traviswimer/dir-to-json.png?branch=master)](https://travis-ci.org/traviswimer/dir-to-json)
+# dir-to-json ![Tests](https://github.com/traviswimer/dir-to-json/actions/workflows/node.js.yml/badge.svg)
 
-> Asynchronously convert directory tree structure into a javascript object.
+> Asynchronously convert directory tree structure into a JavaScript object.
 
 ## Getting Started
 
-Install with NPM:
+### Install
+
+**Yarn:**
+
+```shell
+yarn add dir-to-json
+```
+
+**NPM:**
 
 ```shell
 npm install dir-to-json --save
 ```
 
-Use in your project like this:
+### Usage
 
 ```javascript
 var dirToJson = require("dir-to-json");
