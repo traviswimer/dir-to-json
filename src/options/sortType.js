@@ -1,10 +1,10 @@
-module.exports = function( childrenArray ){
-	return childrenArray.sort( function( a, b ){
-		if( a.type === "file" && b.type === "directory" ){
+module.exports = function (childrenArray) {
+	return childrenArray.sort(function (a, b) {
+		if (a.type === "file" && b.type === "directory") {
 			return 1;
-		}else if( a.type === "directory" && b.type === "file" ){
+		} else if (a.type === "directory" && b.type === "file") {
 			return -1;
-		}else{
+		} else {
 			return 0;
 		}
 	});
