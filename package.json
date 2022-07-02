@@ -1,6 +1,7 @@
 {
   "name": "dir-to-json",
-  "version": "0.0.3",
+  "version": "1.0.0",
+  "license": "MIT",
   "description": "Asynchronously convert directory tree structure into a javascript object.",
   "keywords": [
     "directory",
@@ -28,15 +29,18 @@
   "scripts": {
     "test": "gulp test"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/traviswimer/dir-to-json.git"
+  },
+  "bugs": {
+    "url": "https://github.com/traviswimer/dir-to-json/issues"
+  },
+  "homepage": "https://github.com/traviswimer/dir-to-json",
   "contributors": [
     {
       "name": "Travis Wimer",
-      "url": "http://traviswimer.com"
+      "url": "https://traviswimer.com"
     }
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/traviswimer/dir-to-json"
-  },
-  "license": "MIT"
+  ]
 }
