@@ -175,6 +175,7 @@ dirToJson("./path/to/my/dir")
 
 - <a href="https://traviswimer.com/developer-portfolio" title="React Native, React, NodeJS, UI/UX Developer" target="_blank">Developer Portfolio</a>
 - <a href="https://traviswimer.com/blog" title="React Native, React, NodeJS, UI/UX Blog" target="_blank">My Blog</a>
+- <a href="https://traviswimer.com/developer-portfolio/dir-to-json" title="dir-to-json | Travis Wimer" target="_blank">Dir-To-Json Portfolio Page</a>
 
 ## License
 

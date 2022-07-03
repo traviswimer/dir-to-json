@@ -1,0 +1,340 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`directory with multiple files should match snapshot 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "name": "file-2-1.txt",
+      "parent": "",
+      "path": "file-2-1.txt",
+      "type": "file",
+    },
+    Object {
+      "name": "file-2-2.txt",
+      "parent": "",
+      "path": "file-2-2.txt",
+      "type": "file",
+    },
+    Object {
+      "name": "file-2-3.txt",
+      "parent": "",
+      "path": "file-2-3.txt",
+      "type": "file",
+    },
+  ],
+  "name": "dir-2",
+  "parent": "..",
+  "path": "",
+  "type": "directory",
+}
+`;
+
+exports[`directory with multiple levels should match snapshot 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "children": Array [
+                    Object {
+                      "name": "file-4-1-1-1-1_1.txt",
+                      "parent": "dir-4-1/dir-4-1-1/dir-4-1-1-1 /dir-4-1-1-1-1",
+                      "path": "dir-4-1/dir-4-1-1/dir-4-1-1-1 /dir-4-1-1-1-1/file-4-1-1-1-1_1.txt",
+                      "type": "file",
+                    },
+                    Object {
+                      "name": "file-4-1-1-1-1_2.txt",
+                      "parent": "dir-4-1/dir-4-1-1/dir-4-1-1-1 /dir-4-1-1-1-1",
+                      "path": "dir-4-1/dir-4-1-1/dir-4-1-1-1 /dir-4-1-1-1-1/file-4-1-1-1-1_2.txt",
+                      "type": "file",
+                    },
+                  ],
+                  "name": "dir-4-1-1-1-1",
+                  "parent": "dir-4-1/dir-4-1-1/dir-4-1-1-1 ",
+                  "path": "dir-4-1/dir-4-1-1/dir-4-1-1-1 /dir-4-1-1-1-1",
+                  "type": "directory",
+                },
+                Object {
+                  "children": Array [
+                    Object {
+                      "name": "file-4-1-1-1-2_1.txt",
+                      "parent": "dir-4-1/dir-4-1-1/dir-4-1-1-1 /dir-4-1-1-1-2",
+                      "path": "dir-4-1/dir-4-1-1/dir-4-1-1-1 /dir-4-1-1-1-2/file-4-1-1-1-2_1.txt",
+                      "type": "file",
+                    },
+                    Object {
+                      "name": "file-4-1-1-1-2_2.txt",
+                      "parent": "dir-4-1/dir-4-1-1/dir-4-1-1-1 /dir-4-1-1-1-2",
+                      "path": "dir-4-1/dir-4-1-1/dir-4-1-1-1 /dir-4-1-1-1-2/file-4-1-1-1-2_2.txt",
+                      "type": "file",
+                    },
+                  ],
+                  "name": "dir-4-1-1-1-2",
+                  "parent": "dir-4-1/dir-4-1-1/dir-4-1-1-1 ",
+                  "path": "dir-4-1/dir-4-1-1/dir-4-1-1-1 /dir-4-1-1-1-2",
+                  "type": "directory",
+                },
+                Object {
+                  "name": "file-4-1-1-1-1_1.txt",
+                  "parent": "dir-4-1/dir-4-1-1/dir-4-1-1-1 ",
+                  "path": "dir-4-1/dir-4-1-1/dir-4-1-1-1 /file-4-1-1-1-1_1.txt",
+                  "type": "file",
+                },
+              ],
+              "name": "dir-4-1-1-1 ",
+              "parent": "dir-4-1/dir-4-1-1",
+              "path": "dir-4-1/dir-4-1-1/dir-4-1-1-1 ",
+              "type": "directory",
+            },
+            Object {
+              "name": "file-4-1-1_1.txt",
+              "parent": "dir-4-1/dir-4-1-1",
+              "path": "dir-4-1/dir-4-1-1/file-4-1-1_1.txt",
+              "type": "file",
+            },
+          ],
+          "name": "dir-4-1-1",
+          "parent": "dir-4-1",
+          "path": "dir-4-1/dir-4-1-1",
+          "type": "directory",
+        },
+        Object {
+          "name": "file-4-1_1.txt",
+          "parent": "dir-4-1",
+          "path": "dir-4-1/file-4-1_1.txt",
+          "type": "file",
+        },
+      ],
+      "name": "dir-4-1",
+      "parent": "",
+      "path": "dir-4-1",
+      "type": "directory",
+    },
+    Object {
+      "name": "file-4_1.txt",
+      "parent": "",
+      "path": "file-4_1.txt",
+      "type": "file",
+    },
+  ],
+  "name": "dir-4",
+  "parent": "..",
+  "path": "",
+  "type": "directory",
+}
+`;
+
+exports[`directory with one file should match snapshot 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "name": "file-1-1.txt",
+      "parent": "",
+      "path": "file-1-1.txt",
+      "type": "file",
+    },
+  ],
+  "name": "dir-1",
+  "parent": "..",
+  "path": "",
+  "type": "directory",
+}
+`;
+
+exports[`directory with single sub directory should match snapshot 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "name": "file-3-1_1.txt",
+          "parent": "dir-3-1",
+          "path": "dir-3-1/file-3-1_1.txt",
+          "type": "file",
+        },
+      ],
+      "name": "dir-3-1",
+      "parent": "",
+      "path": "dir-3-1",
+      "type": "directory",
+    },
+    Object {
+      "name": "file-3_3.txt",
+      "parent": "",
+      "path": "file-3_3.txt",
+      "type": "file",
+    },
+  ],
+  "name": "dir-3",
+  "parent": "..",
+  "path": "",
+  "type": "directory",
+}
+`;
+
+exports[`options.sortType should match snapshot when false 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "name": "1-file.txt",
+      "parent": "",
+      "path": "1-file.txt",
+      "type": "file",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "name": "1-file.txt",
+              "parent": "2-dir/1-dir",
+              "path": "2-dir/1-dir/1-file.txt",
+              "type": "file",
+            },
+            Object {
+              "name": "2-file.txt",
+              "parent": "2-dir/1-dir",
+              "path": "2-dir/1-dir/2-file.txt",
+              "type": "file",
+            },
+          ],
+          "name": "1-dir",
+          "parent": "2-dir",
+          "path": "2-dir/1-dir",
+          "type": "directory",
+        },
+        Object {
+          "name": "2-file.txt",
+          "parent": "2-dir",
+          "path": "2-dir/2-file.txt",
+          "type": "file",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "name": "1-file.txt",
+              "parent": "2-dir/3-dir",
+              "path": "2-dir/3-dir/1-file.txt",
+              "type": "file",
+            },
+            Object {
+              "name": "2-file.txt",
+              "parent": "2-dir/3-dir",
+              "path": "2-dir/3-dir/2-file.txt",
+              "type": "file",
+            },
+          ],
+          "name": "3-dir",
+          "parent": "2-dir",
+          "path": "2-dir/3-dir",
+          "type": "directory",
+        },
+      ],
+      "name": "2-dir",
+      "parent": "",
+      "path": "2-dir",
+      "type": "directory",
+    },
+    Object {
+      "name": "3-file.txt",
+      "parent": "",
+      "path": "3-file.txt",
+      "type": "file",
+    },
+  ],
+  "name": "dir-5",
+  "parent": "..",
+  "path": "",
+  "type": "directory",
+}
+`;
+
+exports[`options.sortType should match snapshot when true 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "name": "1-file.txt",
+              "parent": "2-dir/1-dir",
+              "path": "2-dir/1-dir/1-file.txt",
+              "type": "file",
+            },
+            Object {
+              "name": "2-file.txt",
+              "parent": "2-dir/1-dir",
+              "path": "2-dir/1-dir/2-file.txt",
+              "type": "file",
+            },
+          ],
+          "name": "1-dir",
+          "parent": "2-dir",
+          "path": "2-dir/1-dir",
+          "type": "directory",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "name": "1-file.txt",
+              "parent": "2-dir/3-dir",
+              "path": "2-dir/3-dir/1-file.txt",
+              "type": "file",
+            },
+            Object {
+              "name": "2-file.txt",
+              "parent": "2-dir/3-dir",
+              "path": "2-dir/3-dir/2-file.txt",
+              "type": "file",
+            },
+          ],
+          "name": "3-dir",
+          "parent": "2-dir",
+          "path": "2-dir/3-dir",
+          "type": "directory",
+        },
+        Object {
+          "name": "2-file.txt",
+          "parent": "2-dir",
+          "path": "2-dir/2-file.txt",
+          "type": "file",
+        },
+      ],
+      "name": "2-dir",
+      "parent": "",
+      "path": "2-dir",
+      "type": "directory",
+    },
+    Object {
+      "name": "1-file.txt",
+      "parent": "",
+      "path": "1-file.txt",
+      "type": "file",
+    },
+    Object {
+      "name": "3-file.txt",
+      "parent": "",
+      "path": "3-file.txt",
+      "type": "file",
+    },
+  ],
+  "name": "dir-5",
+  "parent": "..",
+  "path": "",
+  "type": "directory",
+}
+`;
+
+exports[`single file should match snapshot 1`] = `
+Object {
+  "name": "file_1.txt",
+  "parent": "..",
+  "path": "",
+  "type": "file",
+}
+`;

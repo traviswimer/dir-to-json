@@ -1,4 +1,5 @@
-module.exports = function (childrenArray) {
+export default function sortByFileOrDir(childrenArray) {
+	// Move directories to the beginning of the array
 	return childrenArray.sort(function (a, b) {
 		if (a.type === "file" && b.type === "directory") {
 			return 1;
@@ -8,4 +9,4 @@ module.exports = function (childrenArray) {
 			return 0;
 		}
 	});
-};
+}
