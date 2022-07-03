@@ -12,7 +12,7 @@ test(`rejects if "callback" is not a valid function`, () => {
 
 test(`successfully generates directory tree with all valid parameters`, (done) => {
 	const filePath = path.resolve(__dirname, "../fixtures/dir-5");
-	callback(filePath, undefined, (err, data) => {
+	callback(filePath, undefined, (err: any, data: any) => {
 		expect(err).toBeUndefined();
 		expect(data).toMatchSnapshot();
 		done();
@@ -21,7 +21,7 @@ test(`successfully generates directory tree with all valid parameters`, (done) =
 
 test(`successfully generates directory tree with no "options" parameter provided`, (done) => {
 	const filePath = path.resolve(__dirname, "../fixtures/dir-5");
-	callback(filePath, (err, data) => {
+	callback(filePath, (err: any, data: any) => {
 		expect(err).toBeUndefined();
 		expect(data).toMatchSnapshot();
 		done();
@@ -35,7 +35,7 @@ test(`callback receives errors when they occur`, (done) => {
 		{
 			this: "is not a valid path string",
 		},
-		(err, data) => {
+		(err: any, data: any) => {
 			expect(data).toBeUndefined();
 			expect(err).toEqual(INVALID_PATH_ERROR);
 			done();

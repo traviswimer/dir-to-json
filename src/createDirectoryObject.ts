@@ -6,7 +6,7 @@ export interface Options {
 	sortType?: boolean;
 }
 
-interface FileInfo {
+export interface FileInfo {
 	parent: string;
 	path: string;
 	name: string;
@@ -15,10 +15,10 @@ interface FileInfo {
 }
 
 export default async function createDirectoryObject(
-	rootDir,
-	fileName,
+	rootDir: string,
+	fileName: string,
 	options: Options
-) {
+): Promise<FileInfo> {
 	const { sortType = true } = options;
 
 	let currentDir = path.normalize(rootDir + "/" + fileName);

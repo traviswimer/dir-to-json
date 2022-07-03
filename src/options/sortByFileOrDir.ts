@@ -1,4 +1,6 @@
-export default function sortByFileOrDir(childrenArray) {
+import { FileInfo } from "../createDirectoryObject";
+
+export default function sortByFileOrDir(childrenArray: FileInfo[]) {
 	// Move directories to the beginning of the array
 	return childrenArray.sort(function (a, b) {
 		if (a.type === "file" && b.type === "directory") {
