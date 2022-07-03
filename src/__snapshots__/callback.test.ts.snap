@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`successfully generates directory tree with all valid parameters 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "name": "1-file.txt",
+              "parent": "2-dir/1-dir",
+              "path": "2-dir/1-dir/1-file.txt",
+              "type": "file",
+            },
+            Object {
+              "name": "2-file.txt",
+              "parent": "2-dir/1-dir",
+              "path": "2-dir/1-dir/2-file.txt",
+              "type": "file",
+            },
+          ],
+          "name": "1-dir",
+          "parent": "2-dir",
+          "path": "2-dir/1-dir",
+          "type": "directory",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "name": "1-file.txt",
+              "parent": "2-dir/3-dir",
+              "path": "2-dir/3-dir/1-file.txt",
+              "type": "file",
+            },
+            Object {
+              "name": "2-file.txt",
+              "parent": "2-dir/3-dir",
+              "path": "2-dir/3-dir/2-file.txt",
+              "type": "file",
+            },
+          ],
+          "name": "3-dir",
+          "parent": "2-dir",
+          "path": "2-dir/3-dir",
+          "type": "directory",
+        },
+        Object {
+          "name": "2-file.txt",
+          "parent": "2-dir",
+          "path": "2-dir/2-file.txt",
+          "type": "file",
+        },
+      ],
+      "name": "2-dir",
+      "parent": "",
+      "path": "2-dir",
+      "type": "directory",
+    },
+    Object {
+      "name": "1-file.txt",
+      "parent": "",
+      "path": "1-file.txt",
+      "type": "file",
+    },
+    Object {
+      "name": "3-file.txt",
+      "parent": "",
+      "path": "3-file.txt",
+      "type": "file",
+    },
+  ],
+  "name": "dir-5",
+  "parent": "..",
+  "path": "",
+  "type": "directory",
+}
+`;
+
+exports[`successfully generates directory tree with no "options" parameter provided 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "name": "1-file.txt",
+              "parent": "2-dir/1-dir",
+              "path": "2-dir/1-dir/1-file.txt",
+              "type": "file",
+            },
+            Object {
+              "name": "2-file.txt",
+              "parent": "2-dir/1-dir",
+              "path": "2-dir/1-dir/2-file.txt",
+              "type": "file",
+            },
+          ],
+          "name": "1-dir",
+          "parent": "2-dir",
+          "path": "2-dir/1-dir",
+          "type": "directory",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "name": "1-file.txt",
+              "parent": "2-dir/3-dir",
+              "path": "2-dir/3-dir/1-file.txt",
+              "type": "file",
+            },
+            Object {
+              "name": "2-file.txt",
+              "parent": "2-dir/3-dir",
+              "path": "2-dir/3-dir/2-file.txt",
+              "type": "file",
+            },
+          ],
+          "name": "3-dir",
+          "parent": "2-dir",
+          "path": "2-dir/3-dir",
+          "type": "directory",
+        },
+        Object {
+          "name": "2-file.txt",
+          "parent": "2-dir",
+          "path": "2-dir/2-file.txt",
+          "type": "file",
+        },
+      ],
+      "name": "2-dir",
+      "parent": "",
+      "path": "2-dir",
+      "type": "directory",
+    },
+    Object {
+      "name": "1-file.txt",
+      "parent": "",
+      "path": "1-file.txt",
+      "type": "file",
+    },
+    Object {
+      "name": "3-file.txt",
+      "parent": "",
+      "path": "3-file.txt",
+      "type": "file",
+    },
+  ],
+  "name": "dir-5",
+  "parent": "..",
+  "path": "",
+  "type": "directory",
+}
+`;

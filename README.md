@@ -21,7 +21,23 @@ npm install dir-to-json --save
 ### Usage
 
 ```javascript
-var dirToJson = require("dir-to-json");
+import dirToJson from "dir-to-json";
+
+dirToJson("./path/to/my/dir", { sortType: true })
+	.then(function (dirTree) {
+		console.log(dirTree);
+	})
+	.catch(function (err) {
+		throw err;
+	});
+```
+
+#### Callback syntax
+
+The callback syntax has been split into another module in version `1.0.0`. If you would still like to use it, just change your import to `dir-to-json/callback`:
+
+```javascript
+import dirToJson from "dir-to-json/callback";
 
 dirToJson("./path/to/my/dir", function (err, dirTree) {
 	if (err) {
@@ -30,15 +46,6 @@ dirToJson("./path/to/my/dir", function (err, dirTree) {
 		console.log(dirTree);
 	}
 });
-
-// If you prefer, you can also use promises
-dirToJson("./path/to/my/dir")
-	.then(function (dirTree) {
-		console.log(dirTree);
-	})
-	.catch(function (err) {
-		throw err;
-	});
 ```
 
 ## API
