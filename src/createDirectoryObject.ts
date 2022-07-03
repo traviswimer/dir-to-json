@@ -17,7 +17,7 @@ interface FileInfo {
 export default async function createDirectoryObject(
 	rootDir,
 	fileName,
-	options: Options = {}
+	options: Options
 ) {
 	const { sortType = true } = options;
 
