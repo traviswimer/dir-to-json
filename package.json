@@ -24,22 +24,36 @@
 		"jest": "^28.1.2",
 		"ts-jest": "^28.0.5",
 		"ts-node": "^10.8.2",
+		"tsup": "^6.1.3",
 		"typescript": "^4.7.4"
 	},
 	"exports": {
-		".": "./dist/main.js",
-		"./callback": "./dist/callback.js"
+		".": {
+			"import": "./entry/index.js",
+			"require": "./entry/index.cjs"
+		},
+		"./callback": {
+			"import": "./entry/callback.js",
+			"require": "./entry/callback.cjs"
+		}
+	},
+	"typesVersions": {
+		"*": {
+			"callback": [
+				"dist/callback.d.ts"
+			]
+		}
 	},
 	"types": "dist/main.d.ts",
 	"engines": {
 		"node": ">=14.0.0"
 	},
 	"scripts": {
-		"build": "tsc",
+		"build": "tsup",
 		"test": "jest --coverage --watchAll",
-		"ci": "jest --coverage --ci"
+		"ci_test": "jest --coverage --ci",
+		"prepublishOnly": "yarn build"
 	},
-	"prepublish": "yarn build",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/traviswimer/dir-to-json.git"

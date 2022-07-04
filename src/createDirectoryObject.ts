@@ -1,6 +1,6 @@
 import fs from "fs/promises";
 import path from "path";
-import sortByFileOrDir from "./options/sortByFileOrDir";
+import sortByFileOrDir from "./options/sortByFileOrDir.js";
 
 export interface Options {
 	sortType?: boolean;
