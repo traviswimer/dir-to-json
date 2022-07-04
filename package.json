@@ -1,42 +1,75 @@
 {
-  "name": "dir-to-json",
-  "version": "0.0.3",
-  "description": "Asynchronously convert directory tree structure into a javascript object.",
-  "keywords": [
-    "directory",
-    "tree",
-    "json",
-    "path",
-    "asynchronous"
-  ],
-  "dependencies": {
-    "q": "^1.0.1"
-  },
-  "devDependencies": {
-    "mocha": "^1.21.4",
-    "chai": "^1.9.1",
-    "rewire": "^2.1.0",
-    "require-dir": "^0.1.0",
-    "gulp": "^3.8.8",
-    "gulp-mocha": "^1.1.0",
-    "gulp-istanbul-enforcer": "^1.0.3",
-    "gulp-istanbul": "^0.3.1",
-    "run-sequence": "^1.0.0",
-    "sinon": "^1.10.3"
-  },
-  "main": "./src/main.js",
-  "scripts": {
-    "test": "gulp test"
-  },
-  "contributors": [
-    {
-      "name": "Travis Wimer",
-      "url": "http://traviswimer.com"
-    }
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/traviswimer/dir-to-json"
-  },
-  "license": "MIT"
+	"name": "dir-to-json",
+	"version": "1.0.0",
+	"license": "MIT",
+	"type": "module",
+	"description": "Asynchronously convert directory tree structure into a javascript object.",
+	"keywords": [
+		"directory",
+		"dir",
+		"tree",
+		"object",
+		"files",
+		"json",
+		"path",
+		"traversal",
+		"walk",
+		"asynchronous"
+	],
+	"dependencies": {},
+	"devDependencies": {
+		"@tsconfig/node14": "^1.0.3",
+		"@types/jest": "^28.1.4",
+		"@types/node": "^18.0.0",
+		"jest": "^28.1.2",
+		"ts-jest": "^28.0.5",
+		"ts-node": "^10.8.2",
+		"tsup": "^6.1.3",
+		"typescript": "^4.7.4"
+	},
+	"exports": {
+		".": {
+			"import": "./entry/index.js",
+			"require": "./entry/index.cjs"
+		},
+		"./callback": {
+			"import": "./entry/callback.js",
+			"require": "./entry/callback.cjs"
+		}
+	},
+	"typesVersions": {
+		"*": {
+			"callback": [
+				"dist/callback.d.ts"
+			]
+		}
+	},
+	"types": "dist/main.d.ts",
+	"files": [
+		"/entry/",
+		"/dist/"
+	],
+	"engines": {
+		"node": ">=14.0.0"
+	},
+	"scripts": {
+		"build": "tsup",
+		"test": "jest --coverage --watchAll",
+		"ci_test": "jest --coverage --ci",
+		"prepublishOnly": "yarn build"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/traviswimer/dir-to-json.git"
+	},
+	"bugs": {
+		"url": "https://github.com/traviswimer/dir-to-json/issues"
+	},
+	"homepage": "https://github.com/traviswimer/dir-to-json",
+	"contributors": [
+		{
+			"name": "Travis Wimer",
+			"url": "https://traviswimer.com"
+		}
+	]
 }
