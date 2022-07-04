@@ -1,4 +1,4 @@
-import { FileInfo } from "../createDirectoryObject.js";
+import { FileInfo } from "../createDirectoryObject";
 
 export default function sortByFileOrDir(childrenArray: FileInfo[]) {
 	// Move directories to the beginning of the array

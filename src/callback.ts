@@ -1,4 +1,4 @@
-import dirToJson from "./main.js";
+import dirToJson from "./main";
 import { Options } from "./createDirectoryObject.js";
 
 export const INVALID_CALLBACK_ERROR = `The "dir-to-json/callback" module requires a valid callback function`;

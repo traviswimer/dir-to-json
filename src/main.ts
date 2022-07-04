@@ -1,4 +1,4 @@
-import createDirectoryObject, { Options } from "./createDirectoryObject.js";
+import createDirectoryObject, { Options } from "./createDirectoryObject";
 
 export const INVALID_PATH_ERROR = `"path" parameter must be a string`;
 export const INVALID_OPTIONS_ERROR = `"options" parameter must be an object`;
