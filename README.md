@@ -48,6 +48,12 @@ dirToJson("./path/to/my/dir", function (err, dirTree) {
 });
 ```
 
+### Requirements
+
+- NodeJS version 14 or higher
+
+> Since Version 1.0.0 of `dir-to-json`, the lowest supported version of NodeJS is `14`. If you are using an older version of Node, try installing `dir-to-json@0.0.3`
+
 ## API
 
 `dirToJson( path [, options ] [, callback ] )`
