@@ -45,6 +45,10 @@
 		}
 	},
 	"types": "dist/main.d.ts",
+	"files": [
+		"/entry/",
+		"/dist/"
+	],
 	"engines": {
 		"node": ">=14.0.0"
 	},
